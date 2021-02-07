@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { TextInput, View, TouchableOpacity, Text } from 'react-native'
-
+import { style } from './style'
 
 export class IMC extends Component {
     constructor(props){
@@ -13,13 +13,13 @@ export class IMC extends Component {
 
     render() {
         return (
-            <View>
-                <TextInput placeholder="Peso (Kg)" onChangeText={(peso)=>this.setState({peso: peso})}>
+            <View style={style.container}>
+                <TextInput style={style.textInput} placeholder="Peso (Kg)" onChangeText={(peso)=>this.setState({peso: peso})}>
                 </TextInput>
-                <TextInput placeholder="Altura (cm)"  onChangeText={(altura)=>this.setState({altura: altura/100})}>
+                <TextInput style={style.textInput} placeholder="Altura (cm)"  onChangeText={(altura)=>this.setState({altura: altura/100})}>
                 </TextInput>
-                <TouchableOpacity  onPress={()=> this.props.navigation.navigate('Resultado',{peso: this.state.peso, altura: this.state.altura} )}>
-                    <Text >
+                <TouchableOpacity style={style.button} onPress={()=> this.props.navigation.navigate('Resultado',{peso: this.state.peso, altura: this.state.altura} )}>
+                    <Text style={style.buttonText}>
                         Calcular
                     </Text>
                 </TouchableOpacity>
